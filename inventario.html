@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FOOD-STOCK - Gestión de Inventario</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <div class="app-layout">
+        <nav class="sidebar">
+            <div class="logo">FOOD - STOCK</div>
+            <a href="dashboard.html">Panel Principal</a>
+            <a href="inventario.html" class="active">Inventario (CRUD)</a>
+            <a href="movimientos.html">Entradas / Salidas</a>
+            <a href="#" class="logout-btn" onclick="logout()">Cerrar Sesión</a>
+        </nav>
+
+        <main class="main-content">
+            <div class="header-panel">
+                <h2>Control y Gestión de Inventario (CRUD)</h2>
+                <button class="btn-primary" style="width: auto; padding: 0.6rem 1.5rem;" onclick="alert('Formulario para CREAR nuevo producto')">+ Agregar Alimento</button>
+            </div>
+
+            <div class="table-container">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Nombre Alimento</th>
+                            <th>Cantidad Stock</th>
+                            <th>Categoría</th>
+                            <th>Fecha Caducidad</th>
+                            <th>Acciones del Administrador</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>#001</td>
+                            <td>Arroz Blanco</td>
+                            <td>150 kg</td>
+                            <td>Granos</td>
+                            <td>2026-12-01</td>
+                            <td>
+                                <button class="action-btn btn-edit" onclick="alert('Editar Arroz')">Editar</button>
+                                <button class="action-btn btn-delete" onclick="alert('Eliminar Registro')">Borrar</button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>#002</td>
+                            <td>Atún en Agua</td>
+                            <td>80 Unidades</td>
+                            <td>Enlatados</td>
+                            <td>2028-05-15</td>
+                            <td>
+                                <button class="action-btn btn-edit" onclick="alert('Editar Atún')">Editar</button>
+                                <button class="action-btn btn-delete" onclick="alert('Eliminar Registro')">Borrar</button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </main>
+    </div>
+    <script src="js/navigation.js"></script>
+</body>
+</html>
