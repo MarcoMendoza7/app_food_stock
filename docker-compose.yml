@@ -16,7 +16,8 @@ services:
       - foodstock_network
 
   backend_node1:
-    build: ./backend
+    build: 
+      context: ./backend
     container_name: foodstock_back1
     environment:
       - PORT=3000
@@ -31,7 +32,8 @@ services:
       - foodstock_network
 
   backend_node2:
-    build: ./backend
+    build: 
+      context: ./backend
     container_name: foodstock_back2
     environment:
       - PORT=3000
@@ -46,7 +48,8 @@ services:
       - foodstock_network
 
   backend_node3:
-    build: ./backend
+    build: 
+      context: ./backend
     container_name: foodstock_back3
     environment:
       - PORT=3000
@@ -61,12 +64,12 @@ services:
       - foodstock_network
 
   frontend:
-    build: ./frontend
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
     container_name: foodstock_front
-    depends_on:
-      - backend_node1
-      - backend_node2
-      - backend_node3
+    # Nota: Quitamos el 'depends_on' estricto hacia los nodos del backend aquí 
+    # ya que el flujo de red se controlará a través de las peticiones del cliente o el balanceador.
     networks:
       - foodstock_network
 
