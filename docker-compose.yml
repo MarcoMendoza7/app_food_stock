@@ -11,7 +11,7 @@ services:
     ports:
       - "5432:5432"
     volumes:
-      - pgdata:/var/lib/postgresql/data
+      - pgdata:/var/lib/postgresql/data # 🔥 Persistencia asegurada en disco duro
     networks:
       - foodstock_network
 
@@ -21,7 +21,7 @@ services:
     container_name: foodstock_back1
     environment:
       - PORT=3000
-      - DB_HOST=postgres_db
+      - DB_HOST=postgres_db # Apunta al nombre del servicio de arriba
       - DB_USER=admin
       - DB_PASSWORD=password123
       - DB_NAME=food_stock
@@ -68,8 +68,6 @@ services:
       context: ./frontend
       dockerfile: Dockerfile
     container_name: foodstock_front
-    # Nota: Quitamos el 'depends_on' estricto hacia los nodos del backend aquí 
-    # ya que el flujo de red se controlará a través de las peticiones del cliente o el balanceador.
     networks:
       - foodstock_network
 
@@ -89,7 +87,7 @@ services:
       - foodstock_network
 
 volumes:
-  pgdata:
+  pgdata: # Este volumen guarda físicamente tus datos fuera de Docker
 
 networks:
   foodstock_network:
