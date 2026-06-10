@@ -91,7 +91,7 @@ function Dashboard() {
         }}>
           <Server size={22} color="#0369A1" />
           <p style={{ margin: 0, color: '#0369A1', fontWeight: '600', fontSize: '0.95rem' }}>
-            Servidor Activo • Petición balanceada en el nodo: <strong style={{ color: '#0C4A6E', textDecoration: 'underline' }}>{nodeName || 'Unknown Node'}</strong>
+            Servidor Activo • Peticiones balanceadas • Round Robin
           </p>
         </div>
 
@@ -252,7 +252,7 @@ function Dashboard() {
                         <tr key={a.id} className="table-row-interactive" style={{ borderBottom: `1px solid ${colors.border}`, background: a.cantidad <= 5 ? '#FFF7ED' : 'transparent', transition: 'background 0.2s' }}>
                           <td style={{ padding: '1.25rem', fontWeight: '700', color: '#1E293B' }}>{a.nombre}</td>
                           <td style={{ padding: '1.25rem', color: a.cantidad <= 5 ? colors.danger : colors.textMain, fontWeight: '800' }}>
-                            {a.cantidad} {a.cantidad <= 5 ? '⚠️' : ''}
+                            {a.cantidad} {a.cantidad <= 5 ? '' : ''}
                           </td>
                           <td style={{ padding: '1.25rem', color: '#475569' }}>{a.categoria}</td>
                           <td style={{ padding: '1.25rem' }}>
